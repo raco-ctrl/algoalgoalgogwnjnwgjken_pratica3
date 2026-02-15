@@ -1,0 +1,43 @@
+---
+import Buto from '../components/Buto.astro';
+import BlogPreview from '../components/BlogPreview.astro';
+import Experience from '../components/Experience.astro';
+import Layout from '../templates/layout.astro';
+
+import json from '../../public/cv.json';
+---
+
+
+<!-- NOTE: Convert to components -->
+<Layout>
+
+		<!-- https://www.figma.com/design/IV5CdxsaVka4jWSAUM4T7D/Untitled?node-id=0-1&p=f -->
+		<article class="genericSection">
+		<h1>Writing</h1>
+		<hr>
+		
+		<main class="previewBlog">
+			{json.blog_posts.map((blog => (
+			<BlogPreview title={blog.title} desc={blog.summary} date={blog.date}/>)))
+			}
+            <br>
+		</main>
+		<hr>
+
+	<br>
+		</article>
+
+</Layout>
+
+
+<!--
+NOTE:
+
+Use map function next time to map stuff
+
+
+import data from "jsonpath";
+----
+data.thing.map(   )
+
+-->

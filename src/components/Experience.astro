@@ -1,0 +1,35 @@
+---
+interface Experience {
+	title: string,
+	desc: string,
+	date: string,
+	location: string,
+	image: string,
+}
+
+const { title, desc, image = "", location="", date = "" } = Astro.props
+---
+
+<style>
+	.experienceIcon {
+		
+	}
+
+	.experienceIcon hr {
+		margin: 0;
+	}
+</style>
+
+<div class="experienceIcon">
+	<img src={image}>
+	<div class="textContainer">
+		<p>{title}</p>
+		<p>{desc}</p>
+		<p>{location}</p>
+		<br>
+		<p>{date}</p>
+	</div>
+	<br>
+	<hr>
+</div>
+		

@@ -1,0 +1,42 @@
+---
+interface ProjectPreview {
+	title: string,
+	desc: string,
+	image: string,
+	alt: string,
+	id: string,
+}
+
+const { title, desc, image = "", alt = "", id = "1" } = Astro.props
+---
+
+<style>
+	div {
+		width: 100%;
+		background-color: #F1F5F9;
+		border-radius: 16px;
+	}
+
+	.inner {
+		padding: 1.5rem;
+	}
+
+	img {
+		width: inherit;
+		border-radius: 16px;
+	}
+
+	.projectPreview p {
+		font-weight: normal;
+	}
+</style>
+
+<div class="projectPreview">
+	<a href=`projects/${id}`>
+		<div class="inner">
+		<img src={image} alt={desc}>
+		<p><b>{title}</b></p>
+		<p>{desc}</p>
+		</div>
+	</a>
+</div>

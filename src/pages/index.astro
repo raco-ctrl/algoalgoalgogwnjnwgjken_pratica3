@@ -1,0 +1,70 @@
+---
+import Buto from '../components/Buto.astro';
+import ProjectPreview from '../components/ProjectPreview.astro';
+import BlogPreview from '../components/BlogPreview.astro';
+import Layout from '../templates/layout.astro';
+
+import json from '../../public/cv.json';
+---
+
+
+<!-- NOTE: Convert to components -->
+<Layout>
+
+		<!-- https://www.figma.com/design/IV5CdxsaVka4jWSAUM4T7D/Untitled?node-id=0-1&p=f -->
+		<article class="genericSection">
+			<h1>Ciao, I'm Alex.</h1>
+			<h2>A product engineer from the UK based in Milan.</h2>
+			<br>
+			<p>I work with leading-edge companies to create exceptional products. I most recently worked with MoonPay to help make web3 accessible. Before that, I built personal and business banking products for millions of customers at Monzo.</p>
+			
+			<br><br>
+			<Buto text="More Information →"/>
+			
+			<hr>
+			<h3>Personal Projects</h3>
+			<p>Below is a section of recent projects that I've worked on.</p>
+			
+		</article>
+
+		<div class="previewGrid">
+			{json.projects.map((project => (
+            	
+			<ProjectPreview title={project.name} desc={project.description} image={project.image} id={project.id}/>)))
+			}
+			<div>
+				<br>
+				<Buto text="View older projects →"/>
+			</div>
+		</div>
+
+		<br><br><br>
+
+		<main class="previewBlog">
+			<h2>Recent Writing</h2>
+			<br><br>
+			
+			{json.blog_posts.map((blog => (
+			<BlogPreview title={blog.title} desc={blog.summary} date={blog.date}/>)))
+			}
+            <br><br><br>
+			<Buto text="View More Posts →"/>
+		</main>
+
+        <br>
+        <hr>
+
+</Layout>
+
+
+<!--
+NOTE:
+
+Use map function next time to map stuff
+
+
+import data from "jsonpath";
+----
+data.thing.map(   )
+
+-->

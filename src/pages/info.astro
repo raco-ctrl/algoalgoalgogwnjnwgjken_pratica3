@@ -1,0 +1,53 @@
+---
+import Buto from '../components/Buto.astro';
+import ProjectPreview from '../components/ProjectPreview.astro';
+import Experience from '../components/Experience.astro';
+import Layout from '../templates/layout.astro';
+
+import json from '../../public/cv.json';
+---
+
+
+<!-- NOTE: Convert to components -->
+<Layout>
+
+		<!-- https://www.figma.com/design/IV5CdxsaVka4jWSAUM4T7D/Untitled?node-id=0-1&p=f -->
+		<main class="genericSection">
+		<h1>Information</h1>
+			
+        <hr>
+
+		<p class="pMultiline">Hi there, I'm Alex. I build my own products, along side working with some amazing companies to help them build theirs.
+
+Most recently, I was working with MoonPay to help build the future of payments. Before that, I was working with Monzo - the fastest growing bank in the UK. Originally joining as a product designer, I transitioned into a web engineer role where I worked with a variety of teams to help rethink modern day banking for their millions of customers.
+
+I also worked with Kalo (which eventually became Polywork) where I was the first UI Engineering hire. My responsibilities included building out the design system as well as ensuring a high bar of design quality across the product.
+
+I've always bounced somewhere between design and engineering, however the common thread has always been my love for building things that people love to use.
+
+If you're interested in working together, feel free to reach out to me here: hey@alexpate.com.</p>
+			
+
+		<br><br>
+		<h1>Experience</h1>
+		{json.experience.map((experience => (
+			<Experience title={experience.position} location={experience.location} desc={experience.company} date={experience.duration} />
+		)))}
+
+	<br>
+		</main>
+
+</Layout>
+
+
+<!--
+NOTE:
+
+Use map function next time to map stuff
+
+
+import data from "jsonpath";
+----
+data.thing.map(   )
+
+-->

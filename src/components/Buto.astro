@@ -1,0 +1,24 @@
+---
+interface Buto {
+	text: string,
+	href: string
+}
+
+const { text, href = "#" } = Astro.props
+---
+
+<style>
+	.linkButton {
+		display: block;
+		width: fit-content;
+		text-decoration: none;
+		padding: 0.8rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		border-radius: 10rem;
+		background-color: black;
+		color: white
+	}
+</style>
+
+<a href={href} class="linkButton">{text}</a>

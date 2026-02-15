@@ -1,0 +1,43 @@
+---
+
+//import estudisData from '../../data/cv.json';
+import Layout from '../../templates/layout.astro';
+
+import json from '../../../public/cv.json';
+
+//Funció que retorna totes les rutes dinàmiques per generar a la compilació
+export async function getStaticPaths(){
+    //Mapejar els estudis per generar els paràmetres id per cada ruta dinàmica
+    const paths = json.projects.map((project) => ({
+        params:{ id: project.id.toString() } //El id de cada estudi serà usat per la ruta dinàmica
+// Exemple de la sortida seria:   [{ "params": { "id": "1" } },{ "params": { "id": "2" } }]
+    }));
+    return paths;
+}
+
+
+
+//Obtenir la ID de la ruta dinàmica
+const {id} = Astro.params;
+
+//Busquem l'estudi per id
+//const estudi = estudisData.education.find(estudi => estudi.id === id);
+const project = json.projects.find(project => project.id.toString() === id)
+
+//Si no trobes l'estudi, llança error
+if(!project) {
+     //throw new Error("That project doesn't exist. Wompwomp.");
+  return Astro.redirect('/404');
+}
+---
+
+<Layout>
+    <main>
+    <br><br>
+        
+        <img src={project.image} width="600px">
+        <h1>{project.name}</h1>
+        <p>{project.description}</p>
+    <br><br>
+    </main>
+</Layout>

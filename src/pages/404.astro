@@ -1,0 +1,36 @@
+---
+import ContactSpot from '../components/ContactSpot.astro';
+import Layout from '../templates/layout.astro';
+---
+
+
+<!-- NOTE: Convert to components -->
+<Layout>
+
+    <style>
+        .error404 {
+            width: 100vw;
+            margin-top: 50vh;
+            margin-bottom: 50vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error404 div {
+            display: block;
+            height: 60px;
+            width: 2px;
+            margin: 20px;
+            background-color: gray;
+        }
+    </style>
+
+    <div class="error404">
+        <h3>404</h3>
+        <div></div>
+        <p>This page could not be found.</p>
+    </div>
+
+</Layout>

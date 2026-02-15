@@ -1,0 +1,35 @@
+---
+interface ProjectPreview {
+	title: string,
+	desc: string,
+	date: string
+}
+
+const { title, desc, date } = Astro.props
+
+---
+
+<style>
+    .gray {
+        color: #888;
+    }
+
+    hr {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        color: #CCC;
+        background-color: #CCC;
+    }
+
+    hr:last-of-type {
+        display: none;
+    }
+</style>
+
+<div>
+	<h3>{title}</h3>
+    <p class="gray">{date}</p>
+	<p>{desc}</p>
+</div>
+
+<hr>

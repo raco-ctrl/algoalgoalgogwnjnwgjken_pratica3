@@ -1,0 +1,50 @@
+---
+import Buto from '../components/Buto.astro';
+import BlogPreview from '../components/BlogPreview.astro';
+import ContactSpot from '../components/ContactSpot.astro';
+import Layout from '../templates/layout.astro';
+
+import json from '../../public/cv.json';
+---
+
+
+<!-- NOTE: Convert to components -->
+<Layout>
+
+		<!-- https://www.figma.com/design/IV5CdxsaVka4jWSAUM4T7D/Untitled?node-id=0-1&p=f -->
+		<article class="genericSection">
+		<h1>contact</h1>
+		<hr>
+		
+
+		<p>If you'd like to get in touch, you can reach me using the following methods. Please note, that I'm not currently available for freelance projects.</p>
+		<br>
+		
+		<main class="contactInfo">
+			<ContactSpot title="E-Mail" desc={json.contact.email}/>
+			<ContactSpot title="Phone" desc={json.contact.phone}/>
+			<ContactSpot title="Location" desc={json.contact.location}/>
+			<ContactSpot title="Website" desc={json.contact.website}/>
+			<ContactSpot title="LinkedIn" desc={json.contact.linkedin}/>
+			<ContactSpot title="GitHub" desc={json.contact.github}/>
+		</main>
+            <br>
+		<hr>
+
+	<br>
+		</article>
+
+</Layout>
+
+
+<!--
+NOTE:
+
+Use map function next time to map stuff
+
+
+import data from "jsonpath";
+----
+data.thing.map(   )
+
+-->
