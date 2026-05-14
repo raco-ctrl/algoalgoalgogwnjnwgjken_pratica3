@@ -1,70 +1,51 @@
 ---
-import Buto from '../components/Buto.astro';
-import ProjectPreview from '../components/ProjectPreview.astro';
-import BlogPreview from '../components/BlogPreview.astro';
-import Layout from '../templates/layout.astro';
 
-import json from '../../public/cv.json';
+import Nav from '../components/nav.astro';
+import Footer from '../components/footer.astro';
 ---
 
+<html lang="en">
 
-<!-- NOTE: Convert to components -->
-<Layout>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-		<!-- https://www.figma.com/design/IV5CdxsaVka4jWSAUM4T7D/Untitled?node-id=0-1&p=f -->
-		<article class="genericSection">
-			<h1>Ciao, I'm Alex.</h1>
-			<h2>A product engineer from the UK based in Milan.</h2>
-			<br>
-			<p>I work with leading-edge companies to create exceptional products. I most recently worked with MoonPay to help make web3 accessible. Before that, I built personal and business banking products for millions of customers at Monzo.</p>
-			
-			<br><br>
-			<Buto text="More Information →"/>
-			
-			<hr>
-			<h3>Personal Projects</h3>
-			<p>Below is a section of recent projects that I've worked on.</p>
-			
-		</article>
+<body>
+    <Nav/>
+    <header class="hero">
+        <video src="videos/result.webm" autoplay loop preload="auto"></video>
+        <div class="content">
+            <h1>DARK PULSE - Energy Drink</h1>
+            <p>Descubre la revolución de la energía inteligente con Dark Pulse. Diseñada científicamente para potenciar tu concentración y claridad mental sin una sola gota de azúcar.
+                <br>Olvídate de los bajones de energía y mantén tu mente en modo alfa durante todo el día con su refrescante sabor</p>
+            <br><br>
+            <a class="button" href="product">FIND MORE</a>
+        </div>
+    </header>
 
-		<div class="previewGrid">
-			{json.projects.map((project => (
-            	
-			<ProjectPreview title={project.name} desc={project.description} image={project.image} id={project.id}/>)))
-			}
-			<div>
-				<br>
-				<Buto text="View older projects →"/>
-			</div>
-		</div>
-
-		<br><br><br>
-
-		<main class="previewBlog">
-			<h2>Recent Writing</h2>
-			<br><br>
-			
-			{json.blog_posts.map((blog => (
-			<BlogPreview title={blog.title} desc={blog.summary} date={blog.date}/>)))
-			}
+    <main>
+        <article>
             <br><br><br>
-			<Buto text="View More Posts →"/>
-		</main>
+            <div class="quote">
+            <p>Tu nuevo aliado para estudiar, trabajar o entrenar.
+                <br>Dark Pulse siempre estara aqui por ti
+            </p>
+            </div>
+            <br><br><br>
+            <h1>SABORES DISPONIBLES</h1>
+            <div class="image-list">
+                <a href="product"><img src="img/can (1).jpg"></a>
+                <a href="product"><img src="img/can (2).jpg"></a>
+                <a href="product"><img src="img/can (3).jpg"></a>
+                <a href="product"><img src="img/can (4).jpg"></a>
+            </div>
+        </article>
+    </main>
 
-        <br>
-        <hr>
+    <Footer/>
+</body>
 
-</Layout>
-
-
-<!--
-NOTE:
-
-Use map function next time to map stuff
-
-
-import data from "jsonpath";
-----
-data.thing.map(   )
-
--->
+</html>
